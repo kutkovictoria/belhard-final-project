@@ -25,6 +25,7 @@ public class DriverTest {
         String actualTitle = actualTitleElement.getText();
 
         Assert.assertEquals(actualTitle, expectedTitle);
+
         driver.quit();
     }
 }
