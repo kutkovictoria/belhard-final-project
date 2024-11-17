@@ -8,9 +8,7 @@ public class LoginPage {
     private By emailInput = By.name("email");
     private By passwordInput = By.name("password");
     private By loginButton = By.xpath("//button[@type='submit'][@name='login']");
-
     private By successMessage = By.xpath("//div[@class='notice success']");
-
     private By errorMessage = By.xpath("//div[@class='notice errors']");
     private WebDriver driver;
 

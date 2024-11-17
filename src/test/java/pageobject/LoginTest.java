@@ -53,7 +53,7 @@ public class LoginTest extends TestBase {
     }
 
     @Test
-    public void loginWithEmptyEmailCorrectPassword(){
+    public void loginWithEmptyRequiredEmailAndCorrectPassword(){
         LoginPage loginPage = new LoginPage(driver);
         SoftAssert softAssert = new SoftAssert();
 

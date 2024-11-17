@@ -7,23 +7,23 @@ import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
 
-public class TestBase {
+public class CatalogTest {
     WebDriver driver;
-    String baseUrl = "https://litecart.stqa.ru/en/";
 
     @BeforeMethod
-    public void methodSetup(){
+    public void openHomePage(){
         driver = new ChromeDriver();
-
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(10));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-        driver.get(baseUrl);
+        driver.get("https://litecart.stqa.ru/en/");
     }
 
 //    @AfterMethod
 //    public void tearDown(){
 //        driver.quit();
 //    }
+
+
 }
