@@ -1,29 +1,25 @@
 package pageobject;
+import com.beust.ah.A;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-
-import java.time.Duration;
-
-public class CatalogTest {
-    WebDriver driver;
-
-    @BeforeMethod
-    public void openHomePage(){
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(10));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-        driver.get("https://litecart.stqa.ru/en/");
+public class CatalogTest extends TestBase{
+    @Test
+    public void findYellowDuck() {
+        HomePage homePage = new HomePage(driver);
+        homePage.searchDataViaSearchInput("Yellow Duck");
+        Assert.assertEquals(driver.getTitle(), "Yellow Duck | Subcategory | Rubber Ducks | My Store");
     }
 
-//    @AfterMethod
-//    public void tearDown(){
-//        driver.quit();
-//    }
+    @Test
+    public void findAllDucks() {
+        String searchInputValue = "Duck";
+        HomePage homePage = new HomePage(driver);
+        homePage.searchDataViaSearchInput(searchInputValue);
+        CatalogPage catalogPage = new CatalogPage(driver);
 
+        Assert.assertTrue(catalogPage.getSearchResultNames().stream().anyMatch(result -> result.contains(searchInputValue)), "Not all result names contain " + searchInputValue);
+    }
 
 }
