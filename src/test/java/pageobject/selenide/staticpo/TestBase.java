@@ -20,7 +20,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.closeWindow;
 
 
-@Listeners(ReportPortalTestNGListener.class)
+@Listeners({ReportPortalTestNGListener.class, ScreenshotListener.class})
 public class TestBase {
 
     @BeforeMethod

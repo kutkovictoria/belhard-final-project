@@ -25,7 +25,7 @@ public class CartTest extends TestBase{
         softAssert.assertAll();
     }
     @Test
-    public void productIsRemovedFromCart() {
+    public void itemIsRemovedFromCart() {
         YellowDuckPage yellowDuckPage = new YellowDuckPage(driver);
         yellowDuckPage.addItemToCart();
 

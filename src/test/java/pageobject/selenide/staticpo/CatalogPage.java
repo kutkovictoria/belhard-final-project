@@ -1,6 +1,7 @@
 package pageobject.selenide.staticpo;
 
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import java.util.List;
 
@@ -12,14 +13,17 @@ public class CatalogPage {
     private static By searchResultLocator = By.xpath("//div[@class='name']");
     private static By duckTitleName = By.xpath("//h1[@class='title']");
 
-    public static void clickYellowDucksLink() {
+    @Step("click yellow duck link")
+    public static void clickYellowDuckLink() {
         $(yellowDuckLink).click();
     }
 
+    @Step("validate duck title name")
     public static void validateDuckTitleName(String expectedText) {
         $(duckTitleName).shouldHave(Condition.text(expectedText));
     }
 
+    @Step("get search result title names")
     public static List<String> getSearchResultNames() {
         return $$(searchResultLocator).texts();
     }
