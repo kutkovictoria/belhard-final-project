@@ -10,6 +10,7 @@ import java.util.List;
 public class CatalogPage {
     private By yellowDuckLink = By.xpath("//div[@class='name'][text()='Yellow Duck']");
     private By searchResultLocator = By.xpath("//div[@class='name']");
+    private By duckTitleName= By.xpath("//h1[@class='title']");
 
     private WebDriver driver;
 
@@ -21,6 +22,10 @@ public class CatalogPage {
         driver.findElement(yellowDuckLink).click();
     }
 
+    public String getDuckTitleName(){
+        return driver.findElement(duckTitleName).getText();
+    }
+
     public List<String> getSearchResultNames() {
         List<String> ducksNames = new ArrayList<>();
         List<WebElement> elements = driver.findElements(searchResultLocator);
@@ -29,5 +34,4 @@ public class CatalogPage {
         }
         return ducksNames;
     }
-
 }

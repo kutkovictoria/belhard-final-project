@@ -1,13 +1,19 @@
 package pageobject;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.openqa.selenium.Alert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 
+@Epic("Login functionality implementation")
+@Feature("Login")
 public class LoginTest extends TestBase {
 
-    @Test
+    @Description("Login with correct email and correct password")
+    @Test(testName = "login with correct credentials")
     public void loginWithValidCredentials(){
         LoginPage loginPage = new LoginPage(driver);
         SoftAssert softAssert = new SoftAssert();

@@ -1,19 +1,21 @@
 package pageobject;
-import com.beust.ah.A;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
+
 
 public class CatalogTest extends TestBase{
     @Test
-    public void findYellowDuck() {
+    public void findDuckByTitleName() {
+        String expectedDuckTitleName = "Purple Duck";
         HomePage homePage = new HomePage(driver);
-        homePage.searchDataViaSearchInput("Yellow Duck");
-        Assert.assertEquals(driver.getTitle(), "Yellow Duck | Subcategory | Rubber Ducks | My Store");
+        homePage.searchDataViaSearchInput(expectedDuckTitleName);
+        CatalogPage catalogPage = new CatalogPage(driver);
+
+        Assert.assertEquals(catalogPage.getDuckTitleName(), expectedDuckTitleName);
     }
 
     @Test
-    public void findAllDucks() {
+    public void findAllDucksByKeywordDuck() {
         String searchInputValue = "Duck";
         HomePage homePage = new HomePage(driver);
         homePage.searchDataViaSearchInput(searchInputValue);
@@ -21,5 +23,4 @@ public class CatalogTest extends TestBase{
 
         Assert.assertTrue(catalogPage.getSearchResultNames().stream().anyMatch(result -> result.contains(searchInputValue)), "Not all result names contain " + searchInputValue);
     }
-
 }
