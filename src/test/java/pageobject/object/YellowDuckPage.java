@@ -1,4 +1,4 @@
-package pageobject;
+package pageobject.object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +23,7 @@ public class YellowDuckPage {
         dropdown.selectByValue("Medium");
     }
 
-    public void addProductToCart() {
+    public void addItemToCart() {
         HomePage homePage = new HomePage(driver);
         homePage.clickRubberDucksLink();
 

@@ -1,15 +1,12 @@
-package pageobject;
+package pageobject.object;
 
-import com.epam.reportportal.testng.ReportPortalTestNGListener;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
+
 import java.time.Duration;
 
-
-@Listeners(ReportPortalTestNGListener.class)
 public class TestBase {
     WebDriver driver;
     String baseUrl = "https://litecart.stqa.ru/en/";
@@ -24,8 +21,8 @@ public class TestBase {
         driver.get(baseUrl);
     }
 
-//    @AfterMethod
-//    public void tearDown(){
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void tearDown(){
+        driver.quit();
+    }
 }

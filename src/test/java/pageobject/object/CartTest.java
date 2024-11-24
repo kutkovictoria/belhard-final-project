@@ -1,4 +1,4 @@
-package pageobject;
+package pageobject.object;
 
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -11,7 +11,7 @@ public class CartTest extends TestBase{
         SoftAssert softAssert = new SoftAssert();
 
         YellowDuckPage yellowDuckPage = new YellowDuckPage(driver);
-        yellowDuckPage.addProductToCart();
+        yellowDuckPage.addItemToCart();
 
         HomePage homePage = new HomePage(driver);
         homePage.waitCartQuantityLabelIsVisible();
@@ -19,15 +19,15 @@ public class CartTest extends TestBase{
 
         CartPage cartPage = new CartPage(driver);
         softAssert.assertEquals(cartPage.getDuckCardTitle(), "Yellow Duck");
-        softAssert.assertEquals(cartPage.getYellowDuckMediumSize(), "Size: Medium");
-        softAssert.assertEquals(cartPage.getDuckPrise(), "$20.50");
+        softAssert.assertEquals(cartPage.getDuckSize(), "Size: Medium");
+        softAssert.assertEquals(cartPage.getDuckPrise(), 20.50);
         softAssert.assertEquals(cartPage.getItemsQuantity(), 1);
         softAssert.assertAll();
     }
     @Test
     public void productIsRemovedFromCart() {
         YellowDuckPage yellowDuckPage = new YellowDuckPage(driver);
-        yellowDuckPage.addProductToCart();
+        yellowDuckPage.addItemToCart();
 
         HomePage homePage = new HomePage(driver);
         homePage.waitCartQuantityLabelIsVisible();

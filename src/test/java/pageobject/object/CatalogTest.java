@@ -1,9 +1,9 @@
-package pageobject;
+package pageobject.object;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
-public class CatalogTest extends TestBase{
+public class CatalogTest extends TestBase {
     @Test
     public void findDuckByTitleName() {
         String expectedDuckTitleName = "Purple Duck";

@@ -1,16 +1,16 @@
-package pageobject;
+package pageobject.object;
 
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class MiniCartTest extends TestBase{
+public class MiniCartTest extends TestBase {
 
     @Test
     public void miniCartIsUpdatedWhenItemIsAddedToCart() {
         SoftAssert softAssert = new SoftAssert();
 
         YellowDuckPage yellowDuckPage = new YellowDuckPage(driver);
-        yellowDuckPage.addProductToCart();
+        yellowDuckPage.addItemToCart();
 
         HomePage homePage = new HomePage(driver);
         homePage.waitCartQuantityLabelIsVisible();

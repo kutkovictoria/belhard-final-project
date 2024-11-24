@@ -1,4 +1,4 @@
-package pageobject;
+package pageobject.object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import java.util.List;
 public class CatalogPage {
     private By yellowDuckLink = By.xpath("//div[@class='name'][text()='Yellow Duck']");
     private By searchResultLocator = By.xpath("//div[@class='name']");
-    private By duckTitleName= By.xpath("//h1[@class='title']");
+    private By duckTitleName = By.xpath("//h1[@class='title']");
 
     private WebDriver driver;
 
@@ -18,11 +18,11 @@ public class CatalogPage {
         this.driver = driver;
     }
 
-    public void clickYellowDucksLink(){
+    public void clickYellowDucksLink() {
         driver.findElement(yellowDuckLink).click();
     }
 
-    public String getDuckTitleName(){
+    public String getDuckTitleName() {
         return driver.findElement(duckTitleName).getText();
     }
 
