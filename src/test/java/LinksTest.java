@@ -79,7 +79,7 @@ public class LinksTest {
     public void regionalSettingsLinkChangeCurrencyToEUR() {
         WebElement changeRegionalSettingsElement = driver.findElement(By.xpath("//div[@id='region']//a[@class='fancybox-region']"));
         changeRegionalSettingsElement.click();
-        WebElement currencyElement = driver.findElement(By.xpath("//div[@id='fancybox-content']//div[@id='box-regional-settings']//table//td[contains(text(),'Currency')]//select[@name='currency_code']"));
+        WebElement currencyElement = driver.findElement(By.xpath("//select[@name='currency_code']"));
         Select dropdown = new Select(currencyElement);
         dropdown.selectByVisibleText("Euros");
         WebElement saveButton = driver.findElement(By.xpath("//*[@id='box-regional-settings']//button[@type='submit']"));
